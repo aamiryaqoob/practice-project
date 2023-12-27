@@ -4,8 +4,8 @@ import CoreConcepts from "./components/CoreConcept/CoreConcepts.jsx";
 import TabButtons from "./components/TabButtons.jsx";
 
 function App() {
-  function onSelectHandler(){
-    console.log("selected")
+  function onSelectHandler(selected){
+    console.log(selected)
 }
   return (
     <div>
