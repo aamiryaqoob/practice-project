@@ -12,6 +12,7 @@ function App() {
   }
   return (
     <div>
+      {/* header */}
       <Header />
       <main>
         <section id="core-concepts">
