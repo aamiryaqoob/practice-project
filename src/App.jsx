@@ -6,10 +6,24 @@ import TabButtons from "./components/TabButtons.jsx";
 import { useState } from "react";
 
 function App() {
-  const [changed, setChanged] = useState("Components");
+  const [changed, setChanged] = useState();
   function onSelectHandler(selected) {
     setChanged(selected);
   }
+  let tabContent = <p>Please select a topic.</p>;
+
+  if(changed) {
+    tabContent = (
+      <div id="tab-content">
+        <h3>{EXAMPLES[changed].title}</h3>
+        <p>{EXAMPLES[changed].description}</p>
+        <pre>
+          <code>{EXAMPLES[changed].code}</code>
+        </pre>
+      </div>
+    )
+  } 
+
   return (
     <div>
       <Header />
@@ -41,13 +55,7 @@ function App() {
               state
             </TabButtons>
           </menu>
-          <div id="tab-content">
-            <h3>{EXAMPLES[changed].title}</h3>
-            <p>{EXAMPLES[changed].description}</p>
-            <pre>
-              <code>{EXAMPLES[changed].code}</code>
-            </pre>
-          </div>
+          {tabContent}
         </section>
       </main>
     </div>
